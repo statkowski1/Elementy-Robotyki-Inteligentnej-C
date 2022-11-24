@@ -16,32 +16,21 @@ int main()
 		cout<<"Poziom baterii = " << BatteryLevel(&comm) << endl;
 		cout<<"Dostepna pamiec flash = " << GetAvailableFlash(&comm) << endl;
 		
-		
-		
+		Sensor::SetColor(&comm, IN_2, 'n');
 		StartProgram(&comm, IN_1);
+		char decyzja;
+		int color;
+		
+		do
+		{
+			color=Sensor::GetValue(&comm, IN_3);
+			if()
+			{
+				
+			}
+		} while(decyzja!='k' && decyzja!='K');
+		StopProgram(&comm);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	Close(&comm);
