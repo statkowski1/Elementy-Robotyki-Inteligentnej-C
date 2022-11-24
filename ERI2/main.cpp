@@ -13,6 +13,11 @@ int main()
 	if(Open(&comm))
 	{
 		cout << "Sygnał znaleziony!" << endl;
+		cout<<"Poziom baterii = " << BatteryLevel(&comm) << endl;
+		cout<<"Dostepna pamiec flash = " << GetAvailableFlash(&comm) << endl;
+		
+		
+		
 		StartProgram(&comm, IN_1);
 	}
 
