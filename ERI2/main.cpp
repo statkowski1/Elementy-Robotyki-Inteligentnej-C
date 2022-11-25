@@ -24,7 +24,11 @@ int main()
 		do
 		{
 			color=Sensor::GetValue(&comm, IN_3);
-			if()
+			if(color<10)
+			{
+				
+			}
+			else
 			{
 				
 			}
