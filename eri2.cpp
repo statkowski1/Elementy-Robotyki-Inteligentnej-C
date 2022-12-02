@@ -21,32 +21,38 @@ int main()
 		char decyzja;
 		int color;
 		char decColor;
-		int x = 10;
-		int y = 7;
+		int x = 20;
+		int y = 6;
+		int z = 6;
 		Sensor::SetColor(&comm, IN_3, 'n');
 
 		do
 		{
 			color = Sensor::GetValue(&comm, IN_3);
 			cout << "n = " << color << endl;
-			Wait(500);
 			if(kbhit()==true)
 			{
 				decyzja = getch();
-				if(decyzja=='L' || decyzja=='l')
+			}
+			if(decyzja=='L' || decyzja=='l')
+			{
+				if(color>15 && color<=50)
 				{
-					color=Sensor::GetValue(&comm, IN_2);
-					if(color<10)
-					{
-						Motor::SetForward(&comm, OUT_B, x);
-						Motor::SetForward(&comm, OUT_C, x);
-					}
-					else
-					{
-						Motor::SetForward(&comm, OUT_B, y);
-						Motor::SetForward(&comm, OUT_C, 0);
-						Motor::Stop(&comm, OUT_C, 0);
-					}
+					Motor::SetForward(&comm, OUT_B, x);
+					Motor::SetForward(&comm, OUT_C, x);
+					cout << "XXX" << endl;
+				}
+				else if(color<=15)
+				{
+					Motor::SetForward(&comm, OUT_B, y);
+					Motor::SetReverse(&comm, OUT_C, y);
+					cout << "YYY" << endl;
+				}
+				else if(color>50)
+				{
+					Motor::SetForward(&comm, OUT_C, z);
+					Motor::SetReverse(&comm, OUT_B, z);
+					cout << "ZZZ" << endl;
 				}
 			}
 			
