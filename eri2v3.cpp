@@ -90,7 +90,7 @@ int main()
 
 			int xtemp=30;
 			int ytemp=20;
-			char last_value;l
+			char last_value;
 
 			if(decyzja=='A' || decyzja=='a' || (ytemp!=y && last_value=='a'))
 			{
